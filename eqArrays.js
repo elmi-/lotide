@@ -1,15 +1,4 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
-    // console.log('✅ Assertion Passed: ' + actual + ' === ' + expected);
-  } else {
-    console.log(`❌ Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
-/*
-Implement a function eqArrays which takes in two arrays and returns true or false, based on a perfect match.
-*/
+const assertEqual = require('./assertEqual');
 
 const eqArrays = function(arr1, arr2) {
   let outcome;
@@ -28,16 +17,4 @@ const eqArrays = function(arr1, arr2) {
   return outcome;
 };
 
-eqArrays([1, 2, 3], [1, 2, 3]); // => true
-eqArrays([1, 2, 3], [3, 2, 1]); // => false
-eqArrays([1, 2, 3], [1, 2]); // => false
-
-eqArrays(["1", "2", "3"], ["1", "2", "3"]); // => true
-eqArrays(["1", "2", "3"], ["1", "2", 3]); // => false
-
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
-assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false); // => should PASS
-assertEqual(eqArrays([1, 2, 3], [1, 2]), true); // => should FAIL
-
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), false); // => should FAIL
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false); // => should PASS
+module.exports = eqArrays;
